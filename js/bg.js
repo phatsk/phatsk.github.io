@@ -1,15 +1,13 @@
 document.addEventListener('DOMContentLoaded', function(){
-	// Make some colors!
-	document.body.style.backgroundColor = makeColor(170,255);
-
-	var colorMin = 0;
-	var colorMax = 255;
-
 	function makeColor( low, high ) {
-		var colors = [];
+        // Make some colors!
+        var colorMin = 100;
+        var colorMax = 255;
+
 		var x;
-		low  = low || 0;
-		high = high || 255;
+		var colors = [];
+		low  = low || colorMin;
+		high = high || colorMax;
 
 		if ( low < colorMin || high > colorMax ) {
 			return Math.ceil( Math.random() * colorMax );
@@ -27,4 +25,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
 		return 'rgb(' + colors.join(',') + ')';
 	}
+
+    function changeBg() {
+        document.body.style.backgroundColor = makeColor(170,255);
+    }
+
+    changeBg();
 });
